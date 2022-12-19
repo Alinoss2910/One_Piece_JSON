@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      One Piece
+    </ion-title>
+    <ion-button (click)="filtrar('a')" id="filtro1">Haki</ion-button>
+    <ion-button (click)="filtrar('b')" id="filtro2">Pirata</ion-button>
+    <ion-button (click)="filtrar('c')" id="filtro3">Marino</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+
+    <ion-row *ngIf="filtro==='a'">
+      <ng-container *ngFor="let user of users | async">
+        <ion-col *ngIf="user.haki === true" size-xl="3" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <ion-card-content>
+              <ion-avatar>
+                <img [src]="user.avatar">
+              </ion-avatar>
+              <h1>{{ user.nombre}}</h1>
+              <h2><b>Haki:</b> {{ user.haki }}</h2>
+              <h2><b>Genero: </b>{{ user.gender }}</h2>
+              <h2><b>Pirata: </b>{{ user.pirata }}</h2>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+
+    <ion-row *ngIf="filtro==='b'">
+      <ng-container *ngFor="let user of users | async">
+        <ion-col *ngIf="user.pirata === true" size-xl="3" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <ion-card-content>
+              <ion-avatar>
+                <img [src]="user.avatar">
+              </ion-avatar>
+              <h1>{{ user.nombre}}</h1>
+              <h2><b>Haki:</b> {{ user.haki }}</h2>
+              <h2><b>Genero: </b>{{ user.gender }}</h2>
+              <h2><b>Pirata: </b>{{ user.pirata }}</h2>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+
+    <ion-row *ngIf="filtro==='c'">
+      <ng-container *ngFor="let user of users | async">
+        <ion-col *ngIf="user.marino === true" size-xl="3" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <ion-card-content>
+              <ion-avatar>
+                <img [src]="user.avatar">
+              </ion-avatar>
+              <h1>{{ user.nombre}}</h1>
+              <h2><b>Haki:</b> {{ user.haki }}</h2>
+              <h2><b>Genero: </b>{{ user.gender }}</h2>
+              <h2><b>Pirata: </b>{{ user.pirata }}</h2>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
